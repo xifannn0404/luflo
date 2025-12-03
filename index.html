@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>光浮之苑｜Luflo</title>
+  <meta name="description" content="以光為媒介的生活提案：藝術、療癒、社交與永續的複合式人文空間。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f9faf7;
+      --fg:#37371f;
+      --muted:#80806b;
+      --brand:#c7bf7c;      /* 清透綠藍，像柔光 */
+      --brand-dark:#CF8934;
+      --accent:#987b49;     /* 溫暖金光 */
+      --card:#ffffff;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --radius:14px;
+      --max:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font-family:"Noto Sans TC",system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+    a{color:var(--brand-dark);text-decoration:none}
+    img{max-width:100%;display:block}
+    /* Header */
+    .nav{
+      position:sticky;top:0;z-index:50;background:#ffffffbf;
+      backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e5e7eb;
+    }
+    .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.8px}
+    .brand-badge{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--brand) 0%, #eedfc2 60%, #ffffff 100%);box-shadow:var(--shadow)}
+    .nav-links{display:flex;gap:18px;font-size:14px}
+    .nav-links a{padding:8px 10px;border-radius:10px}
+    .nav-links a:hover{background:#eef6f6}
+    /* Hero */
+    .hero{
+      position:relative;overflow:hidden;background:radial-gradient(1200px 500px at 70% 0%, #e6fbf7 0%, #ffffff 50%, var(--bg) 100%);
+      border-bottom:1px solid #e5e7eb;
+    }
+    .hero-inner{max-width:var(--max);margin:0 auto;padding:80px 20px 60px;display:grid;grid-template-columns:1.05fr .95fr;gap:32px}
+    .hero h1{font-size:42px;line-height:1.15;margin:0 0 16px}
+    .hero p{font-size:18px;color:var(--muted);margin:0 0 22px}
+    .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;border:1px solid #d1e7e6;background:#ffffff;
+      box-shadow:var(--shadow);font-weight:600
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--brand) 0%, #fffae3f1 0%);color:#cf8934;border-color:#e5e7eb}
+    .btn.primary:hover{filter:brightness(1.04)}
+    .hero-img{
+      position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #e5e7eb;background:#ffffff;
+    }
+    .hero-img img{width:100%;height:auto}
+    /* Section */
+    section{padding:70px 20px}
+    .wrap{max-width:var(--max);margin:0 auto}
+    .section-title{font-size:28px;margin:0 0 12px}
+    .section-desc{color:var(--muted);margin:0 0 26px}
+    /* Cards */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .card{
+      background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px
+    }
+    .card h3{margin:0 0 8px;font-size:20px}
+    .card p{margin:0;color:var(--muted)}
+    /* List tags */
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{font-size:12px;background:#eef6f6;color:#cf8934;padding:6px 10px;border-radius:999px;border:1px solid #d1e7e6}
+    /* Gallery */
+    .masonry{
+      column-count:3;column-gap:16px
+    }
+    .masonry .item{break-inside:avoid;margin-bottom:16px;border-radius:14px;overflow:hidden;border:1px solid #e5e7eb;box-shadow:var(--shadow)}
+    /* Contact */
+    .contact{
+      background:linear-gradient(135deg,#ffffff 0%, #e9fbf7 100%);border-top:1px solid #e5e7eb
+    }
+    .contact .card{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .info-item{margin:6px 0}
+    /* Footer */
+    footer{padding:26px 20px;border-top:1px solid #e5e7eb;color:#6b7280;text-align:center}
+    /* Responsive */
+    @media (max-width:960px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .grid-2{grid-template-columns:1fr}
+      .contact .card{grid-template-columns:1fr}
+      .masonry{column-count:2}
+    }
+    @media (max-width:560px){
+      .masonry{column-count:1}
+      .hero h1{font-size:34px}
+      .hero p{font-size:16px}
+    }
+  </style>
+</head>
+<body>
+ <!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <!-- 改成 logo -->
+      <img src="C:\Users\稀飯\Desktop\luflo\pic\logo.png" style="height:40px;margin-right:10px;">
+      <span>光浮之苑｜Luflo</span>
+    </div>
+    <nav class="nav-links" aria-label="主選單">
+      <a href="#about">關於</a>
+      <a href="#sdg">永續</a>
+      <a href="#spaces">空間</a>
+      <a href="#products">產品</a>
+      <a href="#gallery">相簿</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <h1>光浮之苑</h1>
+        <p>在高速流動的城市裡，時間成為稀缺資源，人們被迫以「效率」為基準去生活。地鐵的速度、螢幕的閃爍、工作與日程的堆疊，逐漸壓縮了人們的感官與思緒。在這樣的狀態下，情緒難以被安放，靈魂失去了棲息的角落。 
+「光浮之苑 Luflo」正是我們對這種失衡的回應。</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#contact">預約參訪</a>
+          <a class="btn" href="#about">了解更多</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <!-- 主視覺 -->
+        <img src="C:\Users\稀飯\Desktop\luflo\pic\02_Original.jpg" alt="柔光穿越老屋的主視覺">
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">關於 Luflo</h2>
+      <p class="section-desc">Luflo 源自 Lumen（光）與 Flow（流動、漂浮），象徵光線在空間中柔和流轉，成為情緒修復與心靈沉澱的媒介；中文名「光浮之苑」以詩意命名，像一座漂浮於城市中的光之花園。</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>基地分析</h3>
+          <p>自然環境良好：四周被大片農田與綠地包圍，空氣品質較佳（AQI顯示為 31，屬於良好），有助於打造親近自然的公共空間，如公園、圖書館或文化中心。靠近河流：鄰近的河道可做為景觀或生態教育的資源，有利於發展環境教育或親水設施 
+</p>
+        </div>
+        <div class="card">
+          <h3>交通與可達性</h3>
+          <p>鄰近主要幹道：靠近民權路五段與永昌路，交通便利，連接周圍社區和市區發展區。鄰近桃大然社區與永園橋：與東側新興開發區（如桃園航空城）僅一橋之隔，有潛力吸引未來人口進出。</p>
+        </div>
+        <div class="card">
+          <h3>發展潛力</h3>
+          <p>鄰近正在開發區域：東側桃園航空城計畫區內建案興起，該地可望成為未來新興地區的支撐公共建設。空間完整、集中：這塊土地看起來形狀方整，未被分割，適合蓋大型建築或園區式設施。</p>
+        </div>
+         <div class="card">
+          <h3>地理位置適中</h3>
+          <p>介於市區與農村之間：結合都市與鄉村的優勢，適合做為區域中心的服務節點或社區交流基地。距離地標適中：距離「土地公小吃」、「沿溪三聖宮」、RBC咖啡等生活據點不遠，可與當地商業與文化結合。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDGs -->
+  <section id="sdg">
+    <div class="wrap">
+      <h2 class="section-title">永續承諾（SDGs）</h2>
+      <p class="section-desc">我們以老屋改造為起點，導入自然採光與低能耗設計，讓空間回歸社區、回到人。</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>SDG 3 健康與福祉</h3>
+          <p>靜光冥想室、拾光閱讀角、浮光會客廳，以光影與自然材質安放心緒。</p>
+          <div class="tags">
+            <span class="tag">冥想</span><span class="tag">閱讀</span><span class="tag">舒壓</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>SDG 7 潔淨能源</h3>
+          <p>循光管、自然採光、低能耗照明，降低碳排與照明成本。</p>
+          <div class="tags">
+            <span class="tag">日光導入</span><span class="tag">LED</span><span class="tag">低耗能</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>SDG 11 永續城市與社區</h3>
+          <p>選擇改造而非新建，結合在地藝術與居民參與，創造人與人的連結。</p>
+          <div class="tags">
+            <span class="tag">老屋活化</span><span class="tag">社區共創</span><span class="tag">在地藝術</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spaces -->
+  <section id="spaces">
+    <div class="wrap">
+      <h2 class="section-title">空間分區</h2>
+      <p class="section-desc">六個場域，以不同的光影語彙編織日常：迎光、浮光、靜光、拾光、展光與飲光。</p>
+      <div class="grid-3">
+        <div class="card"><h3>迎光大廳</h3><p>第一縷柔光迎面而來，作為相遇的門廊。</p></div>
+        <div class="card"><h3>浮光會客廳</h3><p>流動的社交場域，適合小型座談與交流。</p></div>
+        <div class="card"><h3>靜光冥想室</h3><p>以半透明材質與低照度，讓心靈緩慢下沉。</p></div>
+        <div class="card"><h3>拾光閱讀角</h3><p>自然採光下的書牆與座位，適合獨處。</p></div>
+        <div class="card"><h3>光影展覽空間</h3><p>在地藝術展演與裝置的舞台。</p></div>
+        <div class="card"><h3>外圍市集</h3><p>邀請附近居民、手作品牌與小農參與，讓市集成為社區共創的平台。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+<section id="products">
+  <div class="wrap">
+    <h2 class="section-title">主題產品</h2>
+    <p class="section-desc">把空間的詩性帶回日常：便利貼、杯墊、明信片與閱歷等皆以光為題。</p>
+    <div class="grid-3">
+      <div class="card">
+        <h3>便利貼</h3>
+        <!-- 加入圖片 -->
+        <img src="C:\Users\稀飯\Desktop\luflo\pic\tag.jpg" alt="便利貼" style="border-radius:10px;margin-bottom:10px;">
+        <p>以森林、晨光、雨後以及不知道四款基調，延續安定感。</p>
+      </div>
+      <div class="card">
+        <h3>明信片</h3>
+        <!-- 加入圖片 -->
+        <img src="C:\Users\稀飯\Desktop\luflo\pic\posrcard.jpg" alt="名信片" style="border-radius:10px;margin-bottom:10px;">
+        <p>以光影配色與觸感紙材，陪你記錄情緒與時間。</p>
+      </div>
+      <div class="card">
+        <h3>木製杯墊</h3>
+        <!-- 加入圖片 -->
+        <img src="C:\Users\稀飯\Desktop\luflo\pic\coaster.jpg" alt="木製杯墊" style="border-radius:10px;margin-bottom:10px;">
+        <p>木頭製杯墊。</p>
+      </div>
+      <div class="card">
+        <h3>月曆</h3>
+        <!-- 加入圖片 -->
+        <img src="C:\Users\稀飯\Desktop\luflo\pic\canlder.jpg" alt="月曆" style="border-radius:10px;margin-bottom:10px;">
+        <p>以森林、晨光、雨後以及不知道四款基調，延續安定感。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="wrap">
+      <h2 class="section-title">相簿</h2>
+      <p class="section-desc">活動瞬間、光影細節。</p>
+      <div class="masonry">
+        <!-- 替換為你的圖片 -->
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\IMG_2426.jpg" alt="柔光穿越走廊"></div>
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\IMG_2475.jpg"alt="冥想室光影"></div>
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\1010_Original.jpg" alt="閱讀角一隅"></div>
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\IMG_2474.jpg" alt="展覽裝置"></div>
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\IMG_2478.jpg" alt="咖啡吧檯"></div>
+        <div class="item"><img src="C:\Users\稀飯\Desktop\luflo\pic\IMG_2476.jpg"alt="外圍市集"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 class="section-title">聯絡資訊</h2>
+      <p class="section-desc">歡迎合作、洽談。</p>
+      <div class="card">
+        <div>
+          <div class="info-item"><strong>地址：</strong>桃園市中壢區五聖路26巷 </div>
+          <div class="info-item"><strong>Email：</strong><a href="mailto:a0928697228@gmail.com">a0928697228@gmail.com</a></div>
+          <div class="info-item"><strong>Instagram：</strong><a href="https://www.instagram.com/cy_.11.5" target="_blank">@cy_.11.5</a></div>
+          <div class="info-item"><strong>開放時間：</strong>12月下旬試營運!</div>
+        </div>
+        <div>
+          <form action="#" method="post">
+            <label>您的姓名</label>
+            <input style="width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;margin:6px 0" type="text" placeholder="yourname">
+            <label>電子郵件</label>
+            <input style="width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;margin:6px 0" type="email" placeholder="you@example.com">
+            <label>訊息</label>
+            <textarea style="width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;margin:6px 0;height:120px" placeholder="想聊合作、展覽或場地租用嗎？"></textarea>
+            <button class="btn primary" type="submit" style="width:100%;justify-content:center;margin-top:8px">送出訊息</button>
+            <p style="color:#6b7280;font-size:12px;margin-top:8px">送出表單即表示同意我們回覆您之聯絡方式與內容:D </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 光浮之苑｜Luflo — 在光與流之間，找回內心的節奏
+  </footer>
+</body>
+</html>
